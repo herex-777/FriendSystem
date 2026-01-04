@@ -1,0 +1,64 @@
+name: FriendSystem
+version: 1.0
+main: me.herex.friendsystem.FriendSystem
+api-version: 1.13
+author: Herex
+description: A comprehensive friend system plugin for Minecraft servers
+website: https://github.com/herex-777/FriendSystem
+depend: [PlaceholderAPI]
+
+commands:
+  friend:
+    description: Main friend command.
+    usage: /<command> <player>
+    permission: friendsystem.use
+  f:
+    description: Friend system command alias
+    usage: /f <player> or /f <subcommand>
+    permission: friendsystem.use
+  msg:
+    description: Send a message to a friend
+    usage: /msg <player> <message>
+    aliases: [message, tell, w]
+    permission: friendsystem.message
+  r:
+    description: Reply to the last message
+    usage: /r <message>
+    aliases: [reply]
+    permission: friendsystem.message
+  block:
+    description: Block system command
+    usage: /block <add|remove|removall|list|help>
+    permission: friendsystem.use
+  friendsystem:
+    description: Admin commands for FriendSystem.
+    usage: /<command> [reload|cleardata]
+    permission: friendsystem.admin
+
+permissions:
+  friendsystem.*:
+    description: Gives access to all FriendSystem commands
+    children:
+      friendsystem.use: true
+      friendsystem.message: true
+      friendsystem.admin: true
+  friendsystem.use:
+    description: Allows use of basic friend commands
+    default: true
+  friendsystem.message:
+    description: Allows messaging friends
+    default: true
+  friendsystem.admin:
+    description: Grants access to all admin commands.
+    default: op
+    children:
+      friendsystem.admin.reload: true
+      friendsystem.admin.cleardata: true
+  friendsystem.admin.reload:
+    description: Allows reloading the plugin.
+    default: op
+  friendsystem.admin.cleardata:
+    description: Allows clearing player data.
+    default: op
+  friendsystem.user:
+    description: Basic access to friend commands. 

@@ -1,0 +1,39 @@
+# FriendSystem Configuration
+
+general:
+  request_timeout: 5
+  max_friends: 100
+  max_requests: 10
+
+notifications:
+  friend_online: true
+  friend_offline: true
+  friend_joined_lobby: true
+  friend_left_lobby: true
+  friend_requests: true
+
+storage:
+  type: "YAML"
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "friendsystem"
+    username: "root"
+    password: "password"
+    table_prefix: "fs_"
+
+privacy:
+  default_allow_requests: true
+  default_appear_offline: false
+  default_notify_online: true
+  default_allow_join: true 
+
+gui:
+  # Worlds where the GUI and action bar are allowed (case-sensitive)
+  lobby_worlds:
+    - world
+    - world_spawn
+  # Server names where the GUI and action bar are allowed (for Bungee/Velocity setups)
+  lobby_servers:
+    - lobby
+    - hub 
